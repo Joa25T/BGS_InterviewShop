@@ -665,8 +665,8 @@ GameObject:
   - component: {fileID: 7182586017236034489}
   - component: {fileID: 6345185369248380614}
   - component: {fileID: 3346759364627032821}
-  - component: {fileID: 3368709221076239205}
-  - component: {fileID: 348027631731018444}
+  - component: {fileID: 3460283146774467717}
+  - component: {fileID: 5412650440986790703}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3368709221076239205}
+      - m_Target: {fileID: 3460283146774467717}
         m_TargetAssemblyTypeName: PlayerControls, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -808,12 +808,16 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 14f026c2-37cc-4f70-8f23-42c55f8a5a42
     m_ActionName: Player/Interact
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 88d86228-5d21-442f-a570-1faa41d29363
+    m_ActionName: Player/Run[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3368709221076239205
+--- !u!114 &3460283146774467717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -826,8 +830,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkSpeed: 200
-  _runSpeed: 400
---- !u!50 &348027631731018444
+  _runSpeedMultiplier: 1.8
+  _parentRenderer: {fileID: 2949311631400084624}
+--- !u!50 &5412650440986790703
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -910,7 +915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2949311631400084624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
