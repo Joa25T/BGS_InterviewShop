@@ -39,7 +39,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnEnable()
     {
-        //caching in the Input Actions as we need to read their values in different methods instead of calling a especific one
+        //caching in the Input Actions as we need to read their values in different methods instead of calling a specific one
         _interactInput = _playerInputActions.Player.Interact;
         _interactInput.Enable();
         
@@ -87,7 +87,7 @@ public class PlayerControls : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         //UIManager.Instance.OpenPanel(_interactPopUp);
-        if (!_interactInput.IsPressed()) return;
+        if (_interactInput.phase != InputActionPhase.Performed) return;
         if (other.TryGetComponent(out Interactable interactable))
         {
             interactable.OnInteract(this.gameObject);

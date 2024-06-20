@@ -14,6 +14,7 @@ namespace BGS_Shop.UI
             }
             Instance = this;
             _popUp = GetComponentInChildren<InteractPopUp>();
+            _popUp.gameObject.SetActive(false);
         }
 
         public void ClosePanel(CanvasRenderer panel)
