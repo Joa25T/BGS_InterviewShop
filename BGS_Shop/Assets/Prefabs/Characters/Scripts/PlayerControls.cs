@@ -1,7 +1,6 @@
-using System;
-using BGS_Shop.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using BGS_Shop.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
@@ -40,6 +39,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnEnable()
     {
+        //caching in the Input Actions as we need to read their values in different methods instead of calling a especific one
         _interactInput = _playerInputActions.Player.Interact;
         _interactInput.Enable();
         
@@ -50,14 +50,12 @@ public class PlayerControls : MonoBehaviour
         _runInput.Enable();
     }
 
-
     private void FixedUpdate()
     {
         Move();
         SelectAnimation();
     }
-
-
+    
     private void Move()
     {
         _rb.velocity = CalculateVelocity();

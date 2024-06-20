@@ -23,6 +23,12 @@ namespace BGS_Shop.UI
         {
             panel.gameObject.SetActive(true);
         }
+
+        public void OpenInteractPopUp(CanvasRenderer panel)
+        {
+            
+        }
+        
     }
     
 }
