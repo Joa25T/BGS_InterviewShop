@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using BGS_Shop.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,10 +11,12 @@ public class PlayerControls : MonoBehaviour
     private Animator _animator;
     private PlayerInput _playerInput;
     private Rigidbody2D _rb;
+    private Collider2D _collider;
     
     private PlayerInputActions _playerInputActions;
     private InputAction _moveInput;
     private InputAction _runInput;
+    private InputAction _interactInput;
 
     [Header("Movement")]
     [SerializeField] private float _walkSpeed = 200f;
@@ -22,6 +24,7 @@ public class PlayerControls : MonoBehaviour
     
     [Header("Animation")]
     [SerializeField]private GameObject _parentRenderer;
+    [SerializeField]private CanvasRenderer _interactPopUp;
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -37,8 +40,8 @@ public class PlayerControls : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInputActions.Player.Interact.performed += Interact;
-        _playerInputActions.Player.Interact.Enable();
+        _interactInput = _playerInputActions.Player.Interact;
+        _interactInput.Enable();
         
         _moveInput = _playerInputActions.Player.Move;
         _moveInput.Enable();
@@ -46,13 +49,7 @@ public class PlayerControls : MonoBehaviour
         _runInput = _playerInputActions.Player.Run;
         _runInput.Enable();
     }
-    
 
-    private void Interact(InputAction.CallbackContext obj)
-    {
-        Debug.Log("Interacting");
-    }
-    
 
     private void FixedUpdate()
     {
@@ -89,9 +86,14 @@ public class PlayerControls : MonoBehaviour
         _parentRenderer.transform.localScale = new Vector3(lookLeft, 1, 1);
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        
+        //UIManager.Instance.OpenPanel(_interactPopUp);
+        if (!_interactInput.IsPressed()) return;
+        if (other.TryGetComponent(out IInteractable interactable))
+        {
+            interactable.OnInteract(this.gameObject);
+        }
     }
 
     private void OnDisable()
