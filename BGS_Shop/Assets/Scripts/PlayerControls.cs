@@ -84,8 +84,9 @@ public class PlayerControls : MonoBehaviour
         if (_rb.velocity.magnitude < 0.1f) return;
         
         //checking if we are moving left
-        int lookleft = _rb.velocity.x > 0 ? 1 : -1;
-        _parentRenderer.transform.localScale =new Vector3(lookleft, 1, 1);
+        int lookLeft = _rb.velocity.x > 0 ? 1 : -1;
+        // I don't like doing it this way but the animations on the asset reduced of my options
+        _parentRenderer.transform.localScale = new Vector3(lookLeft, 1, 1);
     }
 
     public void OnInteract(InputAction.CallbackContext context)
