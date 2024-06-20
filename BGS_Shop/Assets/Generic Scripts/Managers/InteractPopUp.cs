@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class PopUpPosition : MonoBehaviour
+public class InteractPopUp : MonoBehaviour
 {
     [Header("Object References")]
     [SerializeField] private Transform _player;
@@ -30,6 +29,11 @@ public class PopUpPosition : MonoBehaviour
 
     private void Update()
     {
+        GetPosition();
+    }
+
+    private void GetPosition()
+    {
         _rect.position = _camera.WorldToScreenPoint(_player.position) + _offsetHover;
     }
 
@@ -43,6 +47,11 @@ public class PopUpPosition : MonoBehaviour
             hoverDistance = Vector3.Distance(_offsetCenter, _offsetHover);
             _hoverSpeed *= (hoverDistance < _hoverClamp) ? 1 : -1;
         }
+    }
+
+    public void ChangePlayer(Transform player)
+    {
+        _player = player;
     }
 
     private void OnDisable()

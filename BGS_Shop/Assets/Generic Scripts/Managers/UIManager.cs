@@ -5,6 +5,7 @@ namespace BGS_Shop.UI
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
+        private InteractPopUp _popUp; 
         private void Awake()
         {
             if (Instance != null)
@@ -12,6 +13,7 @@ namespace BGS_Shop.UI
                 Destroy(this.gameObject);
             }
             Instance = this;
+            _popUp = GetComponentInChildren<InteractPopUp>();
         }
 
         public void ClosePanel(CanvasRenderer panel)
@@ -23,10 +25,15 @@ namespace BGS_Shop.UI
         {
             panel.gameObject.SetActive(true);
         }
-
-        public void OpenInteractPopUp(CanvasRenderer panel)
+        
+        public void OpenInteractPopUp()
         {
-            
+            _popUp.gameObject.SetActive(true);
+        } 
+        
+        public void CloseInteractPopUp()
+        {
+            _popUp.gameObject.SetActive(false);
         }
         
     }

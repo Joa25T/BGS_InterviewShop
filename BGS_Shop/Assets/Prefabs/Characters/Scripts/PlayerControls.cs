@@ -88,7 +88,7 @@ public class PlayerControls : MonoBehaviour
     {
         //UIManager.Instance.OpenPanel(_interactPopUp);
         if (!_interactInput.IsPressed()) return;
-        if (other.TryGetComponent(out IInteractable interactable))
+        if (other.TryGetComponent(out Interactable interactable))
         {
             interactable.OnInteract(this.gameObject);
         }
