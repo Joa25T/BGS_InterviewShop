@@ -36,7 +36,11 @@ namespace BGS_Shop.UI
         {
             _popUp.gameObject.SetActive(false);
         }
-        
+
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
     }
     
 }
