@@ -14,12 +14,13 @@ public class HUDManager : MonoBehaviour
     [SerializeField]private TMP_Text _costText;
     private int _totalCost = 0;
 
-    private Dictionary<int, ChosenItem> SelectedItems;
+    private Dictionary<int, ChosenItem> _selectedItems;
     public static Action<Dictionary<int, ChosenItem>> CallChange;
-    
+
+    public Dictionary<int, ChosenItem> SelectedItems => _selectedItems;
     private void Awake()
     {
-        SelectedItems = new Dictionary<int, ChosenItem>();
+        _selectedItems = new Dictionary<int, ChosenItem>();
         _currentCurrency = _initialCurrency;
     }
 
@@ -37,7 +38,7 @@ public class HUDManager : MonoBehaviour
     private void CalculateCost()
     {
         _totalCost =0;
-        foreach (ChosenItem item in SelectedItems.Values)
+        foreach (ChosenItem item in _selectedItems.Values)
         {
             _totalCost += item.Price;
         }
@@ -58,26 +59,26 @@ public class HUDManager : MonoBehaviour
     
     public void GrabItem(ChosenItem item)
     {
-        if (SelectedItems.ContainsKey(item.PartID))
+        if (_selectedItems.ContainsKey(item.PartID))
         {
-            SelectedItems[item.PartID] = item;
+            _selectedItems[item.PartID] = item;
         }
         else
         {
-            SelectedItems.Add(item.PartID,item);
+            _selectedItems.Add(item.PartID,item);
         }
         CalculateCost();
     }
 
     public void RemoveAllItems()
     {
-        SelectedItems.Clear();
+        _selectedItems.Clear();
         CalculateCost();
     }
     
     public void OnOutfitAccept()
     {
-        CallChange.Invoke(SelectedItems);
+        CallChange.Invoke(_selectedItems);
         Pay();
     }
 }

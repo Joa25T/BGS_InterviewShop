@@ -28,11 +28,9 @@ public class OutfitAssigner : MonoBehaviour
 
     private void OutfitChange(Dictionary<int,ChosenItem> selectedItems)
     {
-        Debug.Log("events link correctly");
         // pulling the models from our list of references using the asigned ID
         if (selectedItems.ContainsKey(0))
         {
-            Debug.Log("if statement works correctly");
             _hood.sprite = _spriteReferences._hoods[selectedItems[0].ModelID];
             _hood.color = _enchantmentReferences[selectedItems[0].EnchantmentID].TintColor; 
         }

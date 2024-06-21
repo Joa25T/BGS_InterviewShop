@@ -2609,30 +2609,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2118867105}
         m_TargetAssemblyTypeName: CurrencyManager, Assembly-CSharp
-        m_MethodName: RemoveAllItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2118867105}
-        m_TargetAssemblyTypeName: CurrencyManager, Assembly-CSharp
-        m_MethodName: Pay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2118867105}
-        m_TargetAssemblyTypeName: CurrencyManager, Assembly-CSharp
         m_MethodName: OnOutfitAccept
         m_Mode: 1
         m_Arguments:
@@ -4026,6 +4002,7 @@ GameObject:
   - component: {fileID: 1829151621}
   - component: {fileID: 1829151619}
   - component: {fileID: 1829151620}
+  - component: {fileID: 1829151622}
   m_Layer: 5
   m_Name: ChangePanel
   m_TagString: Untagged
@@ -4094,6 +4071,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 267.9, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1829151622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829151618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566d78a5af58d2e428edabb060084a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hood: {fileID: 272581745}
+  _mask: {fileID: 1216212827}
+  _torso: {fileID: 821669812}
+  _spriteReferences: {fileID: 11400000, guid: 14d8ff8b081630a48ae805695d5d9558, type: 2}
+  _enchantmentReferences:
+  - {fileID: 11400000, guid: 9fa98b6af6f4b1b448f09c76f03c0282, type: 2}
+  - {fileID: 11400000, guid: d761d64b3eb57f848b8ecf409802a2a2, type: 2}
+  - {fileID: 11400000, guid: 419e28e0c4fb8c44da516b4c52fea20b, type: 2}
+  _hudManager: {fileID: 2118867105}
 --- !u!1 &1838333393
 GameObject:
   m_ObjectHideFlags: 0
