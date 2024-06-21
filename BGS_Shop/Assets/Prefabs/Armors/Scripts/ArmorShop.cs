@@ -1,7 +1,7 @@
 using UnityEngine;
 using BGS_Shop.UI;
 
-public class ArmorShopping : Interactable
+public class ArmorShop : Interactable
 {
     [SerializeField]private CanvasRenderer _armorPanel;
 
