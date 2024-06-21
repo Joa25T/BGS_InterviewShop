@@ -40,3 +40,4 @@ namespace BGS_Shop.UI
     }
     
 }
+

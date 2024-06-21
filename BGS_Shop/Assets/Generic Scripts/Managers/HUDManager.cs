@@ -12,7 +12,7 @@ public class CurrencyManager : MonoBehaviour
     [Header("Costs")]
     //[SerializeField]private TMP_Text _costText;
     [SerializeField]private TMP_Text _costText2;
-    private int _totalCost = 0;
+    [SerializeField]private int _totalCost = 0;
 
     private Dictionary<int, ChosenItem> SelectedItems;
     
@@ -27,27 +27,37 @@ public class CurrencyManager : MonoBehaviour
         _currencyText2.text = _initialCurrency.ToString();
     }
 
-    private void AddToCost(int cost)
+    private void CalculateCost()
     {
-        _totalCost += cost;
+        _totalCost =0;
+        foreach (ChosenItem item in SelectedItems.Values)
+        {
+            _totalCost += item.Price;
+        }
+        if (_totalCost == 0)
+        {
+            _costText2.text = "";
+            return;
+        }
         _costText2.text = $"-{_totalCost}";
     }
-
-    private void ReduceCost(int cost)
-    {
-        
-    }
-
+    
     public void GrabItem(ChosenItem item)
     {
-        AddToCost(item.Price);
         if (SelectedItems.ContainsKey(item.PartID))
         {
             SelectedItems[item.PartID] = item;
         }
         else
         {
-            SelectedItems.Add(item.PartID, item);
+            SelectedItems.Add(item.PartID,item);
         }
+        CalculateCost();
+    }
+
+    public void RemoveAllItems()
+    {
+        SelectedItems.Clear();
+        CalculateCost();
     }
 }

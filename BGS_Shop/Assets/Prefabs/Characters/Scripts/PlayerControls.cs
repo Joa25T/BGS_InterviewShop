@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using BGS_Shop.UI;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
