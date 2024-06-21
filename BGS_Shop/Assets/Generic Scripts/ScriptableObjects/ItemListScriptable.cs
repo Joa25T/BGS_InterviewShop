@@ -1,18 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemListScriptable : MonoBehaviour
+[CreateAssetMenu(menuName = "ItemList", fileName = "ScriptableObjects/ItemList")]
+public class ItemListScriptable : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<Sprite> _hoods;
+    public List<Sprite> _masks;
+    public List<Sprite> _torsos;
+    public List<Sprite> _pelvis;
+    public List<Sprite> _leftElbows;
+    public List<Sprite> _rightElbows;
 }

@@ -1,30 +1,37 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CurrencyManager : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
     [Header("Currency")]
-    //[SerializeField] private TMP_Text _currencyText;
-    [SerializeField] private TMP_Text _currencyText2;
+    [SerializeField] private TMP_Text _currencyText;
     [SerializeField] private int _initialCurrency;
+    private int _currentCurrency;
     
     [Header("Costs")]
-    //[SerializeField]private TMP_Text _costText;
-    [SerializeField]private TMP_Text _costText2;
-    [SerializeField]private int _totalCost = 0;
+    [SerializeField]private TMP_Text _costText;
+    private int _totalCost = 0;
 
     private Dictionary<int, ChosenItem> SelectedItems;
+    public static Action<Dictionary<int, ChosenItem>> CallChange;
     
     private void Awake()
     {
         SelectedItems = new Dictionary<int, ChosenItem>();
+        _currentCurrency = _initialCurrency;
     }
 
     private void OnEnable()
     {
         ShopUI.ItemGrabbed += GrabItem;
-        _currencyText2.text = _initialCurrency.ToString();
+        _currencyText.text = _currentCurrency.ToString();
+    }
+
+    private void OnDisable()
+    {
+        ShopUI.ItemGrabbed -= GrabItem;
     }
 
     private void CalculateCost()
@@ -36,10 +43,17 @@ public class CurrencyManager : MonoBehaviour
         }
         if (_totalCost == 0)
         {
-            _costText2.text = "";
+            _costText.text = "";
             return;
         }
-        _costText2.text = $"-{_totalCost}";
+        _costText.text = $"-{_totalCost}";
+    }
+
+    public void Pay()
+    {
+        _currentCurrency -= _totalCost;
+        _currencyText.text = _currentCurrency.ToString();
+        RemoveAllItems();
     }
     
     public void GrabItem(ChosenItem item)
@@ -59,5 +73,11 @@ public class CurrencyManager : MonoBehaviour
     {
         SelectedItems.Clear();
         CalculateCost();
+    }
+    
+    public void OnOutfitAccept()
+    {
+        CallChange.Invoke(SelectedItems);
+        Pay();
     }
 }

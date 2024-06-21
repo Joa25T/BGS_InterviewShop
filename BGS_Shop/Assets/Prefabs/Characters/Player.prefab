@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 3346759364627032821}
   - component: {fileID: 3460283146774467717}
   - component: {fileID: 5901149278227252377}
+  - component: {fileID: 1889951415146039292}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -860,6 +861,7 @@ MonoBehaviour:
   _walkSpeed: 200
   _runSpeedMultiplier: 1.8
   _parentRenderer: {fileID: 2949311631400084624}
+  _interactPopUp: {fileID: 0}
 --- !u!70 &5901149278227252377
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -895,6 +897,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.4737628, y: 0.65597904}
   m_Size: {x: 3.707011, y: 2.2492948}
   m_Direction: 1
+--- !u!114 &1889951415146039292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736092232459660619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb0cb23d4bb33f4c9b728f3ddb6f34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hood: {fileID: 739003697574296597}
+  _mask: {fileID: 1138415266457386778}
+  _torso: {fileID: 7272273779686845464}
+  _pelvis: {fileID: 974932719624636488}
+  _leftElbow: {fileID: 3810058922410157291}
+  _rightElbow: {fileID: 982896739759505041}
 --- !u!1 &2481900351792368225
 GameObject:
   m_ObjectHideFlags: 0
