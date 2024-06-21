@@ -14,5 +14,7 @@ public abstract class Interactable : MonoBehaviour
         UIManager.Instance.CloseInteractPopUp();
     }
 
+    public abstract void CloseUIPanel();
+
     public abstract void OnInteract(GameObject caller);
 }
