@@ -23,7 +23,7 @@ public class CurrencyManager : MonoBehaviour
     private void OnEnable()
     {
         ShopUI.ItemGrabbed += GrabItem;
-        //_currencyText.text = _initialCurrency.ToString();
+        _currencyText.text = _initialCurrency.ToString();
     }
 
     private void AddToCost(int cost)
@@ -31,12 +31,15 @@ public class CurrencyManager : MonoBehaviour
         _totalCost += cost;
         _costText.text = $"-{_totalCost}";
     }
-    
-    private void ReduceCost(int cost){}
 
-    public void GrabItem(ChosenItem item, int itemPrice)
+    private void ReduceCost(int cost)
     {
-        AddToCost(itemPrice);
+        
+    }
+
+    public void GrabItem(ChosenItem item)
+    {
+        AddToCost(item.Price);
         if (SelectedItems.ContainsKey(item.PartID))
         {
             SelectedItems[item.PartID] = item;

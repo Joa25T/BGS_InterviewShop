@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour
 
     private ChosenItem _chosenItem;
 
-    public static Action<ChosenItem, int> ItemGrabbed;
+    public static Action<ChosenItem> ItemGrabbed;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +79,6 @@ public class ShopUI : MonoBehaviour
 
     public void GrabItem()
     {
-        ItemGrabbed.Invoke(_chosenItem, _selectionPrice);
+        ItemGrabbed.Invoke(_chosenItem);
     }
 }
