@@ -59,6 +59,9 @@ public class PlayerControls : MonoBehaviour
     private void Move()
     {
         _rb.velocity = CalculateVelocity();
+        
+        //applying a force zero so the rigid-body doesn't go to sleep preventing us from opening the ui
+        _rb.AddForce(Vector2.zero);
     }
 
     private Vector2 CalculateVelocity()
