@@ -47,6 +47,7 @@ public class InteractPopUp : MonoBehaviour
             hoverDistance = Vector3.Distance(_offsetCenter, _offsetHover);
             _hoverSpeed *= (hoverDistance < _hoverClamp) ? 1 : -1;
         }
+        
     }
 
     public void ChangePlayer(Transform player)
