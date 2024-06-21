@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,7 +24,8 @@ public class ShopUI : MonoBehaviour
     private int _selectionPrice;
 
     private ChosenItem _chosenItem;
-    
+
+    public static Action<ChosenItem, int> ItemGrabbed;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,12 +68,17 @@ public class ShopUI : MonoBehaviour
         _image.sprite = _models[_modelID];
         CallForPrice();
     }
-
+    
     private void CallForPrice()
     {
         if (_chosenItem== null) _chosenItem = new ChosenItem(_partID, _modelID, _enchantmentID);
         else _chosenItem.UpdateValues(_partID, _modelID, _enchantmentID);
-        _selectionPrice = Helpers.CalculateCost(_chosenItem);
+        _selectionPrice = _chosenItem.Price;
         _priceText.text = _selectionPrice.ToString();
+    }
+
+    public void GrabItem()
+    {
+        ItemGrabbed.Invoke(_chosenItem, _selectionPrice);
     }
 }

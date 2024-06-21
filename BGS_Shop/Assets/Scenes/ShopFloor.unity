@@ -1813,7 +1813,7 @@ GameObject:
   - component: {fileID: 836598389}
   - component: {fileID: 836598388}
   m_Layer: 5
-  m_Name: Exit
+  m_Name: Button (Grab)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2905,7 +2905,7 @@ GameObject:
   - component: {fileID: 1702728708}
   - component: {fileID: 1702728707}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text (Grab)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close
+  m_text: Grab
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3321,6 +3321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5efcf1f8222c8e44878af6368eae018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currencyText: {fileID: 0}
+  _initialCurrency: 0
+  _costText: {fileID: 0}
 --- !u!1 &1954430810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,6 +3504,7 @@ GameObject:
   - component: {fileID: 2118867102}
   - component: {fileID: 2118867104}
   - component: {fileID: 2118867103}
+  - component: {fileID: 2118867105}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -3567,6 +3571,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118867101}
   m_CullTransparentMesh: 1
+--- !u!114 &2118867105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118867101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5efcf1f8222c8e44878af6368eae018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currencyText: {fileID: 767996435}
+  _initialCurrency: 1000
+  _costText: {fileID: 1605979920}
 --- !u!1 &2133359086
 GameObject:
   m_ObjectHideFlags: 0
