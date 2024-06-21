@@ -3,7 +3,7 @@ using BGS_Shop.UI;
 
 public class ShopInteraction : Interactable
 {
-    [SerializeField]private CanvasRenderer _shopPanel;
+    [SerializeField]protected CanvasRenderer _shopPanel;
 
     public override void CloseUIPanel()
     {
