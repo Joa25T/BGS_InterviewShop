@@ -462,7 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26140f14ba6fe1146b08f3e9455098c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 336410065}
+  _partID: 2
   _models:
   - {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
   - {fileID: 21300000, guid: 90458a12b047bb84ba77cb7ea81ba457, type: 3}
@@ -473,19 +474,10 @@ MonoBehaviour:
   _image: {fileID: 235190068}
   _enchantmentText: {fileID: 453482389}
   _enchantmentDescription: {fileID: 2104420737}
-  _totalEnchantments: 3
-  _textName:
-  - Normal
-  - Bloodied
-  - Silent
-  _textDescription:
-  - A normal armor set
-  - No one can see the blood if the armor is red
-  - Move silently with this magically enhanced armor
-  _enchantmentColor:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
-  - {r: 0, g: 0.4433961, b: 1, a: 1}
+  _enchantments:
+  - {fileID: 11400000, guid: 9fa98b6af6f4b1b448f09c76f03c0282, type: 2}
+  - {fileID: 11400000, guid: d761d64b3eb57f848b8ecf409802a2a2, type: 2}
+  - {fileID: 11400000, guid: 419e28e0c4fb8c44da516b4c52fea20b, type: 2}
   _priceText: {fileID: 437154495}
 --- !u!95 &336410065
 Animator:
@@ -919,7 +911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enchantment
+  m_text: 'Normal
 
 '
   m_isRightToLeft: 0
@@ -1757,12 +1749,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 23
+    m_Left: 20
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 0
+  m_Spacing: -8
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

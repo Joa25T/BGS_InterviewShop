@@ -1,15 +1,13 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class ShopUI : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [Header("Model options")]
+    [Tooltip("ID of the armor part: 0 for hood , 1 for mask , 2 for armor")][SerializeField] private int _partID;
     [SerializeField] private List<Sprite> _models;
     [SerializeField] private Image _image;
     private int _modelID = 0;
@@ -23,6 +21,8 @@ public class ShopUI : MonoBehaviour
     [Header("Price")] 
     [SerializeField] private TMP_Text _priceText;
     private int _selectionPrice;
+
+    private ChosenItem _chosenItem;
     
     // Start is called before the first frame update
     void Start()
@@ -69,8 +69,9 @@ public class ShopUI : MonoBehaviour
 
     private void CallForPrice()
     {
-        ChosenItem item = new ChosenItem(_modelID, _enchantmentID);
-        _selectionPrice = Helpers.CalculateCost(item);
+        if (_chosenItem== null) _chosenItem = new ChosenItem(_partID, _modelID, _enchantmentID);
+        else _chosenItem.UpdateValues(_partID, _modelID, _enchantmentID);
+        _selectionPrice = Helpers.CalculateCost(_chosenItem);
         _priceText.text = _selectionPrice.ToString();
     }
 }
