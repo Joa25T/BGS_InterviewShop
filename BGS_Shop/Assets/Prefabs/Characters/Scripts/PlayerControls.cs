@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using BGS_Shop.UI;
@@ -91,6 +92,14 @@ public class PlayerControls : MonoBehaviour
         if (other.TryGetComponent(out Interactable interactable))
         {
             interactable.OnInteract(this.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Interactable interactable))
+        {
+            interactable.CloseUIPanel();
         }
     }
 
