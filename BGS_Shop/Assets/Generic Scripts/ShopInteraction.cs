@@ -7,13 +7,18 @@ public class ShopInteraction : Interactable
 
     public override void CloseUIPanel()
     {
-        UIManager.Instance.ClosePanel(_shopPanel);
+        if (_shopPanel.gameObject.activeSelf)
+        {
+            UIManager.Instance.ClosePanel(_shopPanel);
+        }
     }
 
     public override void OnInteract(GameObject caller)
     {
-        UIManager.Instance.OpenPanel(_shopPanel);
+        if (!_shopPanel.gameObject.activeSelf)
+        {
+            UIManager.Instance.OpenPanel(_shopPanel);
+        }
     }
-    
 }
 

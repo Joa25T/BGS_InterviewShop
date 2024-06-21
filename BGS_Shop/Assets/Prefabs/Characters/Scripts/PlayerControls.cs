@@ -87,7 +87,7 @@ public class PlayerControls : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         //UIManager.Instance.OpenPanel(_interactPopUp);
-        if (_interactInput.phase != InputActionPhase.Performed) return;
+        if (_interactInput.ReadValue<float>() < 0.1f) return;
         if (other.TryGetComponent(out Interactable interactable))
         {
             interactable.OnInteract(this.gameObject);

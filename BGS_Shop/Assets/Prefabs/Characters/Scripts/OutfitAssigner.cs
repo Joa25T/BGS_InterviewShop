@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OutfitAssigner : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     [Header("Body Renderers")]
     [SerializeField] private SpriteRenderer _hood;
     [SerializeField] private SpriteRenderer _mask;
@@ -28,6 +29,7 @@ public class OutfitAssigner : MonoBehaviour
 
     private void OutfitChange(Dictionary<int,ChosenItem> selectedItems)
     {
+        _animator.SetTrigger("Fire");
         // pulling the models from our list of references using the asigned ID
         if (selectedItems.ContainsKey(0))
         {

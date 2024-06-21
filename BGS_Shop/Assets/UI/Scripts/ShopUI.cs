@@ -30,6 +30,7 @@ public class ShopUI : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        if (_chosenItem == null) _chosenItem = new ChosenItem(0, 0, 0);
     }
 
     public void EnchantmentUp()
@@ -71,8 +72,7 @@ public class ShopUI : MonoBehaviour
     
     private void CallForPrice()
     {
-        if (_chosenItem== null) _chosenItem = new ChosenItem(_partID, _modelID, _enchantmentID);
-        else _chosenItem.UpdateValues(_partID, _modelID, _enchantmentID);
+        _chosenItem.UpdateValues(_partID, _modelID, _enchantmentID);
         _selectionPrice = _chosenItem.Price;
         _priceText.text = _selectionPrice.ToString();
     }
